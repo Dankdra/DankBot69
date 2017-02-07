@@ -78,7 +78,7 @@ class FlavorTexts:
 	@commands.command(pass_context = True)
 	async def rate(self, ctx):
 	    "Rates the Player"
-	    if ctx.message.author.id == '134441036905840640' or ctx.message.author.id == '183307266475294721':
+	    if ctx.message.author.id == '252550433397014529' or ctx.message.author.id == '203833632433897472':
 	    	await self.bot.say("{} is actually the best person to ever exist".format(ctx.message.author.name))
 	    	return
 	    await self.bot.say("{} is Basically Garbage".format(ctx.message.author.name))
@@ -176,7 +176,10 @@ class FlavorTexts:
 	@commands.command(pass_context = True)
 	async def luck(self,ctx):
 		'Returns the Player\'s Luck'
-		luck = round(random.random() * 100,2)
+		if ctx.message.author.id == '252550433397014529' or ctx.message.author.id == '203833632433897472':
+			luck = 100
+		else:
+			luck = round(random.random() * 100,2)
 		if 0 <= luck <= 20:
 			text = "Completly Horrible"
 		elif 20 <= luck <= 40:
