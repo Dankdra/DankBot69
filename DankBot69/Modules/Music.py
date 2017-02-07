@@ -106,7 +106,7 @@ class MusicPlayer:
 			await self.bot.say("The Queue isnt that long!")
 			return
 		currentName = SP.queue[number - 1][1]
-		if currentName == ctx.message.author.name or ctx.message.author.id == "134441036905840640" or currentName == "Radio":
+		if currentName == ctx.message.author.name or ctx.message.author.id == "134441036905840640" or ctx.message.author.id == "203833632433897472" or  ctx.message.author.id == "252550433397014529" or currentName == "Radio":
 			current = SP.queue.pop(number - 1)[0]
 			current.process.kill()
 			await self.bot.say("Removed: " + current.title)
@@ -120,7 +120,7 @@ class MusicPlayer:
 		except:
 			await self.bot.say("The Bot isnt connected in this server!")
 			return
-		if(ctx.message.author.id != "134441036905840640"):
+		if(ctx.message.author.id != "134441036905840640" or ctx.message.author.id != "252550433397014529" or ctx.message.author.id != "203833632433897472"):
 			return
 		SP.requester = ctx.message.author.name
 		current = await SP.voice.create_ytdl_player(link, ytdl_options=OPTS)
@@ -359,7 +359,7 @@ class MusicPlayer:
 
 	@commands.command(pass_context=True, hidden=True)
 	async def musicdebug(self, ctx, *, code : str):
-	    IDs = ["134441036905840640", "126122455248011265"]
+	    IDs = ["134441036905840640", "126122455248011265", "203833632433897472", "252550433397014529"]
 	    if(ctx.message.author.id not in IDs):
 	        return
 	    """Evaluates code."""
@@ -452,6 +452,11 @@ class MusicPlayer:
 			return
 
 		NeededToSkip = int(2*(len(SP.voice.channel.voice_members)-1)/3)
+		
+		if ctx.message.author.id == "252550433397014529" or "203833632433897472":
+			await self.bot.say("Skipping {}.".format(SP.player.title))
+			SP.player.stop()
+			SP.skipList = []
 
 		# Add a new `Skipper` to the list
 		if ID not in SP.skipList:
