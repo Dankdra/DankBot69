@@ -7,7 +7,7 @@ import asyncio
 EXTENTIONS = ['Modules.StaffCmds', 'Modules.Interaction', 'Modules.Music', 'Modules.Games']
 
 def isStaff(ctx):
-    if 
+    if ctx.message.author.id == '252550433397014529' or ctx.message.author.id == '203833632433897472':
             return True
     return True
 
