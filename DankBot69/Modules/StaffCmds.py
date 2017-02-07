@@ -7,8 +7,7 @@ import asyncio
 EXTENTIONS = ['Modules.StaffCmds', 'Modules.Interaction', 'Modules.Music', 'Modules.Games']
 
 def isStaff(ctx):
-    for role in ctx.message.author.roles:
-        if role.name == "Germans":
+    if 
             return True
     return True
 
