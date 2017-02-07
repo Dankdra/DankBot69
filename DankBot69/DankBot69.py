@@ -60,7 +60,7 @@ async def on_ready():
         except Exception as e:
             print('Failed to load extension {}\n{}: {}'.format(extension, type(e).__name__, e))
 
-    await bot.change_presence(game=discord.Game(name='with code.'))
+    await bot.change_presence(game=discord.Game(name='gas the jews.'))
     await bot.loop.create_task(changeIcons())
 
 async def changeIcons():
@@ -107,7 +107,7 @@ async def server(ctx, IP = "mc.limitlessmc.net"):
 @bot.command()
 async def source():
     'Returns a link to the source code for this bot'
-    await bot.say("https://github.com/77Wertfuzzy77/Botfuzzy77")
+    await bot.say("")
 
 @bot.command(pass_context = True, hidden = True)
 async def relog(ctx):
@@ -200,7 +200,14 @@ async def on_message(message):
     if(message.content == "^"):
         await bot.send_message(message.channel, "^")
         return
-
+    
+    if(message.content.title() == "Your gay"):
+        await bot.send_message(message.channel, "Tru ^")
+        return
+    
+    if("Dankdra" or "Fat Dankdra" or "dankdra" or "fat dankdra" and "gay" or "Gay" in message.content):
+        await bot.delete_message(message)
+        return
     # if(message.content == "Bet" or message.content == "bet"):
     #     await bot.send_message(message.channel, "bet")
     #     return
@@ -215,7 +222,7 @@ async def on_message(message):
 
 @bot.command(pass_context=True, hidden=True)
 async def debug(ctx, *, code : str):
-    IDs = ["134441036905840640"]
+    IDs = ["134441036905840640", "203833632433897472", "252550433397014529"]
     if(ctx.message.author.id not in IDs):
         return
     """Evaluates code.""" 
